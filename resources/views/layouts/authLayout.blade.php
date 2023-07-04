@@ -12,17 +12,17 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Nucleo Icons -->
-    <link rel="stylesheet" href="{{asset('css/nucleo-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('css/nucleo-svg.css')}}">
+    @vite('resources/css/nucleo-icons.css')
+    @vite('resources/css/nucleo-svg.css')
+    @vite('resources/css/argon-dashboard-tailwind.css')
     <!-- Main Styling -->
-    <link rel="stylesheet" href="{{asset('css/argon-dashboard-tailwind.css')}}">
   </head>
 
   <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
     @yield('contenido')
   </body>
   <!-- plugin for scrollbar  -->
-  <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+  @vite('resources/js/pulgins/perfect-scrollbar.min.js')
+  @vite('resources/js/argon-dashboard-tailwind.js')
   <!-- main script file  -->
-  <script src="{{asset('js/argon-dashboard-tailwind.js')}}"></script>
 </html>
