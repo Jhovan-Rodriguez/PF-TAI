@@ -21,7 +21,7 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> 
 
 
     @vite('resources/css/nucleo-icons.css')
@@ -30,11 +30,16 @@
 
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
 
     @vite('resources/js/plugins/chartjs.min.js')
     @vite('resources/js/plugins/perfect-scrollbar.min.js')
     @vite('resources/js/argon-dashboard-tailwind.js')
     @vite('resources/js/argon-dashboard-tailwind.min.js')
+	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+	<!--Responsive Extension Datatables CSS-->
+	<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+    @stack('styles')
 
     <title>@yield('titulo')</title>
 </head>
@@ -53,7 +58,7 @@
                 <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times dark:text-white text-slate-400 xl:hidden"
                     sidenav-close></i>
                 <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700"
-                    href=" {{ route('post.index', auth()->user()->username) }} ">
+                    href=" {{ route('post.index') }} ">
                     <img src="{{ asset('img/QPet-Dashboard.png') }}"
                         class="inline h-full max-w-full transition-all duration-200 dark:hidden ease-nav-brand max-h-8"
                         alt="main_logo" />
@@ -69,7 +74,7 @@
 
                     <li class="mt-0.5 w-full">
                         <a class="py-2.7 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors"
-                            href=" {{ route('post.index', auth()->user()->username) }} ">
+                            href=" {{ route('post.index') }} ">
                             <div
                                 class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -89,7 +94,7 @@
 
                     <li class="mt-0.5 w-full">
                         <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                            href="">
+                            href="{{route('productos.index')}}">
                             <div
                                 class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width=24" height="24" fill="currentColor"
@@ -98,7 +103,7 @@
                                         d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                                 </svg>
                             </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Registrar productos</span>
+                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Productos</span>
                         </a>
                     </li>
                     <li class="w-full mt-4">
@@ -107,7 +112,7 @@
                     </li>
                     <li class="mt-0.5 w-full">
                         <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                            href="">
+                            href="{{route('categorias.index')}}">
                             <div
                                 class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -116,7 +121,7 @@
                                     d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                             </svg>
                             </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Registrar categorías</span>
+                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Categorias</span>
                         </a>
                     </li>
                     <li class="w-full mt-4">
@@ -125,7 +130,7 @@
                     </li>
                     <li class="mt-0.5 w-full">
                         <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                            href="">
+                            href="{{route('marcas.index')}}">
                             <div
                                 class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-award-fill relative top-0 text-sm leading-normal text-orange-500" viewBox="0 0 16 16">
@@ -133,7 +138,7 @@
                                   <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
                                 </svg>
                             </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Registrar marcas</span>
+                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Marcas</span>
                         </a>
                     </li>
                     <li class="w-full mt-4">
@@ -248,7 +253,7 @@
                             <li class="text-sm leading-normal">
                                 @auth
                                     <a class="text-white opacity-50"
-                                        href=" {{ route('post.index', auth()->user()->username) }} "> Home</a>
+                                        href=" {{ route('post.index') }} "> Home</a>
                                 @endauth
 
                                 @guest
@@ -281,7 +286,7 @@
                                 </li>
 
                                 <li class="flex items-center">
-                                    <a href=""
+                                    <a href="{{route('logout')}}"
                                         class="block px-0 py-2 text-sm font-semibold text-white transition-all ease-nav-brand">
                                         <span class="hidden sm:inline"> Cerrar Sesión </span>
                                     </a>
@@ -318,10 +323,29 @@
 
             @yield('contenido')
 
-
+            
         </main>
 
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+	<!--Datatables -->
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
+    <script src="{{ URL::asset('js/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+    <script src="{{ URL::asset('js/datatables.js') }}"></script>
+    <script>
+		$(document).ready(function() {
+
+			var table = $('#example').DataTable({
+					responsive: true
+				})
+				.columns.adjust()
+				.responsive.recalc();
+		});
+	</script>
 
 </body>
 
