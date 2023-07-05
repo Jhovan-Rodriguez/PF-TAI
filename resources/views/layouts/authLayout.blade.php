@@ -12,9 +12,10 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Nucleo Icons -->
-    @vite('resources/css/nucleo-icons.css')
-    @vite('resources/css/nucleo-svg.css')
-    @vite('resources/css/argon-dashboard-tailwind.css')
+
+    <link rel="stylesheet" href="{{asset('css/nucleo-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nucleo-svg.css')}}">
+    <link rel="stylesheet" href="{{asset('css/argon-dashboard-tailwind.css')}}">
     <!-- Main Styling -->
   </head>
 
@@ -22,7 +23,10 @@
     @yield('contenido')
   </body>
   <!-- plugin for scrollbar  -->
-  @vite('resources/js/pulgins/perfect-scrollbar.min.js')
-  @vite('resources/js/argon-dashboard-tailwind.js')
+  <script src="{{asset('js/argon-dashboard-tailwind.js')}}"></script>
+  <script src="{{asset('js/argon-dashboard-tailwind.min.js')}}"></script>
+  <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+  <script src="{{asset('js/plugins/chartjs.min.js')}}"></script>
+
   <!-- main script file  -->
 </html>

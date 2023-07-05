@@ -9,12 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
 
-    {{-- Estilos de tailwind --}}
-    @vite('resources/css/app.css')
-
-    {{-- Scripts de tailwind --}}
-    @vite('resources/js/app.js')
-
     <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 
@@ -23,24 +17,30 @@
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script> 
 
-
-    @vite('resources/css/nucleo-icons.css')
-    @vite('resources/css/nucleo-svg.css')
-    @vite('resources/css/argon-dashboard-tailwind.css')
+    <link rel="stylesheet" href="{{asset('css/nucleo-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nucleo-svg.css')}}">
+    <link rel="stylesheet" href="{{asset('css/argon-dashboard-tailwind.css')}}">
 
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
 
-    @vite('resources/js/plugins/chartjs.min.js')
-    @vite('resources/js/plugins/perfect-scrollbar.min.js')
-    @vite('resources/js/argon-dashboard-tailwind.js')
-    @vite('resources/js/argon-dashboard-tailwind.min.js')
+    <script src="{{asset('js/argon-dashboard-tailwind.js')}}"></script>
+    <script src="{{asset('js/argon-dashboard-tailwind.min.js')}}"></script>
+    <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{asset('js/plugins/chartjs.min.js')}}"></script>
+
+
+    
 	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
 	<!--Responsive Extension Datatables CSS-->
 	<link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
     @stack('styles')
+    {{-- Estilos de tailwind --}}
+    @vite('resources/css/app.css')
 
+    {{-- Scripts de tailwind --}}
+    @vite('resources/js/app.js')
     <title>@yield('titulo')</title>
 </head>
 
